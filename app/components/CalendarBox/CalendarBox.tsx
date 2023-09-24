@@ -8,7 +8,6 @@ import styles from "./CalendarBox.module.css"
 
 const CalendarBox = () => {
     const [selectedMonth, setSelectedMonth] = useState(new Date());
-    const {addEvent} = useContext(EventContext);
     const days = useMemo(() => {
         const firstWeekStart = startOfWeek(startOfMonth(selectedMonth));
         const lastWeekEnd = endOfWeek(endOfMonth(selectedMonth));

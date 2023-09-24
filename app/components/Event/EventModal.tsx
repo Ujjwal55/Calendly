@@ -3,19 +3,30 @@ import Modal from '../Modal/Modal'
 import { formatDate } from '@/utils/formatDate';
 import styles from "./Event.module.css"
 
+type Event = {
+  date: Date;
+  // other properties
+}
+
 type TEventModalProps = {
     onSubmit: Function;
     onDelete?: Function;
     event?: Event
     date: Date
+    isOpen: boolean;
+    onClose: () => void;
 }
 const EventModal = ({onSubmit, onDelete, event, date, ...eventProps}: TEventModalProps) => {
-    const edit = !!event;
+    type Event = {
+      date: Date;
+      // other properties
+    }
+    const edit = event !== undefined;
   return (
     <Modal {...eventProps}>
         <div className={styles["modal-title"]}>
             <div>{event ? "Edit" : "Add New Event"}</div>
-            <small>{formatDate(date || event.date, {dateStyle: "long"})}</small>
+            <small>{formatDate(date || event?.date, {dateStyle: "long"})}</small>
             <button className={styles["close-btn"]} onClick={() => eventProps.onClose}>&times;</button>
           </div>
           <form>

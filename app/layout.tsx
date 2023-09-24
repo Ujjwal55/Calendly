@@ -1,6 +1,8 @@
+import { EventContext } from '@/context/EventContext'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { EventProvider } from './provider/EventProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,8 +17,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" >
+      <body className={inter.className}>
+        <EventProvider>
+          {children}
+        </EventProvider>
+      </body>
     </html>
   )
 }

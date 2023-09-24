@@ -1,0 +1,35 @@
+.modal-styles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    animation: fade-in 250ms forwards;
+  }
+  .modal.closing .overlay {
+    animation: fade-in 250ms forwards reverse;
+  }
+  .modal-overlay{
+    background-color: rgba(224, 80, 13, 0.774) !important; /* Semi-transparent background */
+    animation: fade-in 250ms forwards;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  @keyframes fade-in {
+    100% {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+  
+  @keyframes pop-in {
+    100% {
+      transform: scale(1); /* Scale to 100% */
+    }
+  }

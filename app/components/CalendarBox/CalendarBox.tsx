@@ -1,10 +1,11 @@
 "use client"
 import React, { useContext, useMemo, useState } from 'react'
-import { addMonths, eachDayOfInterval, endOfMonth, endOfWeek, startOfMonth, startOfWeek, subMonths } from "date-fns";
+import { addMonths, eachDayOfInterval, endOfMonth, endOfWeek, isSameDay, startOfMonth, startOfWeek, subMonths } from "date-fns";
 import CurrentDay from '../CurrentDay/CurrentDay';
 import { formatDate } from '@/utils/formatDate';
 import { EventContext } from '@/context/EventContext';
 import styles from "./CalendarBox.module.css"
+import { TEvent } from '@/types/EventType';
 
 const CalendarBox = () => {
     const [selectedMonth, setSelectedMonth] = useState(new Date());
@@ -14,6 +15,8 @@ const CalendarBox = () => {
         return eachDayOfInterval({ start: firstWeekStart, end: lastWeekEnd })
     }, [selectedMonth]) 
 
+    const {events} = useContext(EventContext);
+    console.log("events", events)
   return (
     <div>
          <div className={styles["calendar-styles"]}>
@@ -27,7 +30,7 @@ const CalendarBox = () => {
         </div>
         <div className={styles["days-container"]}>
             {days.map((currentDay, index) => (
-                <CurrentDay key={currentDay.getTime()} day={currentDay} showWeekName={index < 7} selectedMonth={selectedMonth}/>
+                <CurrentDay key={currentDay.getTime()} day={currentDay} showWeekName={index < 7} events={events.filter((event: TEvent) => isSameDay(currentDay, event.date))} selectedMonth={selectedMonth}/>
             ))}
             </div>
       </div>

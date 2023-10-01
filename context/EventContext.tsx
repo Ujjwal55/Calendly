@@ -3,7 +3,9 @@ import { createContext } from "react";
 
 type TEventsContext = {
     events: TEvent[];
-    addEvent: (event: Omit<TEvent, "id">) => void;
+    addEvent: (eventDetails: Omit<TEvent, "id">) => void;
+    updateEvent: (id: string, eventDetails: Omit<Event, "id">) => void;
+    deleteEvent: (id: string) => void;
 }
 
-export const EventContext = createContext<TEventsContext | null>(null)
+export const EventContext = createContext<any>(null);

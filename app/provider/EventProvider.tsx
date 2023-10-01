@@ -9,11 +9,17 @@ type EventProviderProps = {
 
 export function EventProvider({children}: EventProviderProps){
     const [events, setEvents] = useState<TEvent[]>([])
-    const addEvent = (event: Omit<TEvent, "id">) => {
-        setEvents(e => [...e, {...event, id: crypto.randomUUID()}])
+    const addEvent = (eventDetails: TEvent) => {
+        setEvents(e => [...e, {...eventDetails, id: crypto.randomUUID()}])
+    }
+    const updateEvent = (id: string, eventDetails: Omit<Event, "id">) => {
+        setEvents(e => e.map(event => event.id === id ? {...event, ...eventDetails} : event))
+    }
+    const deleteEvent = (id: string) => {
+        setEvents(e => e.filter(event => event.id !== id))
     }
     return (
-        <EventContext.Provider value={{events, addEvent}}>
+        <EventContext.Provider value={{events,updateEvent, addEvent, deleteEvent}}>
             {children}
         </EventContext.Provider>
     )

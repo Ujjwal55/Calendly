@@ -10,6 +10,8 @@
   --border-color: #dadce0;
   --border-size: 1px;
   --day-padding: 0.25rem;
+  --red-background: hsl(0, 75%, 60%);
+  --green-background: hsl(150, 80%, 30%);
 }
 
 body {

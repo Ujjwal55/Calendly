@@ -8,7 +8,9 @@ type TModalProps = {
     onClose: () => void;
 }
 const Modal = ({children, isOpen, onClose}: TModalProps) => {
+    console.log("clicked")
     useEffect(() => {
+        console.log("now clicked")
         function handler(e: KeyboardEvent){
             if(e.key === "Escape") onClose()
         }
@@ -21,7 +23,7 @@ const Modal = ({children, isOpen, onClose}: TModalProps) => {
   return (
     createPortal(
     <div className={styles["modal-styles"]}>
-        <div className={styles["modal-overlay"]} onClick={onClose}>
+        <div className={styles["modal-overlay"]}>
             {children}
         </div>
     </div>, document.body

@@ -76,3 +76,72 @@
 .add-event:hover{
     opacity: 1;
 }
+
+.single-event{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.day-event{
+  padding: 0.15rem 0.25rem ;
+  display: flex;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+.all-day-event{
+  padding: 0.15rem 0.25rem ;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+.event-name{
+  overflow: hidden;
+}
+.event-container{
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    flex-shrink: 0;
+    background: none;
+    width: 100%;
+    border: none;
+    font-size: 1rem;
+    padding: 0; 
+}
+.event-time{
+  color: #777;
+}
+
+.color-dot {
+  border-radius: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  flex-shrink: 0;
+}
+.selected-red{
+  background-color: var(--red-background);
+}
+.selected-green{
+  background-color: var(--green-background);
+}
+.selected-blue{
+  background-color: var(--blue-background);
+}
+.event-styles{
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    flex-shrink: 0;
+    background: none;
+    width: 100%;
+    border: none;
+    font-size: 1rem;
+    padding: 0;
+   
+}

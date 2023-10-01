@@ -109,7 +109,7 @@ const EventModal = ({onSubmit, onDelete, event, date, ...eventProps}: TEventModa
                     edit ? "Edit" : "Add"
               }</button>
               {onDelete !== null && (
-            <button className="btn btn-delete" type="button" onClick={() => {onDelete ; eventProps.onClose()}}>Delete</button>
+            <button className="btn btn-delete" type="button" onClick={onDelete as () => void}>Delete</button>
               )}
             </div>
           </form>
